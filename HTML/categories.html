@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Navigation</title>
+<link rel="icon" href="../FOOD_IMG/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Playwrite+DE+Grund:wght@100..400&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+<style>
+    :root {
+            --primary-color: #fc7f09;
+            --primary-color-light: #fffcfa;
+            --primary-color-dark: #a45409;
+            --text-dark: #18181b;
+            --text-light: #6b7820;  
+            --white: #ffffff;
+            --max-width: 1200px;
+        }
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #menu-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            padding: 20px;
+            padding-top: 6%;
+            justify-content: center;
+        }
+        nav {
+            background-color: var(--primary-color-dark);
+            padding: 10px 0;
+        }
+        .cat_nav {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+        .cat_nav li {
+            margin: 0 15px;
+        }
+        .cat_nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 20px;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .cat_nav a:hover {
+            color: var(--text-light);
+        }
+        .cat_main {
+            border: 1px solid var(--primary-color-dark);
+            padding: 10px;
+            margin: 20px;
+            text-align: center;
+            max-width: 250px;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--white);
+            margin-left: 55px;
+        }
+        .header_logo{
+            height: 50px;
+        }
+        .cat_img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+            object-fit: cover;
+        }
+        .cat_img:hover {
+            transform: scale(0.9) rotateX(15deg);
+        }
+        h2 {
+            margin: 0;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        .description {
+            margin: 1px;
+            padding: 1px;
+            color: var(--text-light);
+        }
+        .type, .price {
+            margin: 4px 0;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: var(--primary-color-dark);
+        }
+    * {
+    box-sizing: border-box;
+    }
+    .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    background-color: #a45409;
+    backdrop-filter: blur(50px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+    .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    }
+    .logo {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    }
+    .cat_nav {
+    list-style: none;
+    display: flex;
+    }
+    .cat_nav li {
+    margin-left: 2.5rem;
+    }
+    .cat_nav a {
+    font-size: 1.15rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    }
+    #check {
+    display: none;
+    }
+    .icon {
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    }
+    .cart-icon {
+position: relative;
+color: #fff;
+font-size: 1.8rem;
+cursor: pointer;
+display: flex;
+align-items: center;
+}
+
+.cart-icon .bx-cart {
+font-size: 2.5rem;
+}
+
+.cart-count {
+position: absolute;
+top: -5px;
+right: -8px;
+background-color: #ff0000;
+color: #fff;
+font-size: 1rem;
+font-weight: bold;
+padding: 3px 8px;
+border-radius: 50%;
+}
+/*new*/
+#cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background-color: white;
+        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    #cart-display {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .cart-item img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .cart-item h4, .cart-item p {
+        margin: 0;
+    }
+
+    .cart-item button {
+        margin-left: auto;
+        padding: 5px 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+
+@media (max-width: 500px) {
+    #menu-container {
+        grid-template-columns: repeat(1, 1fr) !important;
+        padding-top: 20%  !important;
+        margin-bottom: 5%  !important;
+        place-items: center;
+    }
+    .cat_nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cat_nav li {
+        margin: 5px 0;
+    }
+    .cat_main {
+        margin: 0 auto;
+        width: 100%;
+        margin-bottom: 5%;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    button {
+        margin-bottom: 0;
+        font-size: 12px;
+    }
+    .cat_img {
+        height: 50%;
+        width: 100%; 
+    }  
+    .cart-icon {
+    width: 50px;
+    height: 50px;
+    top: -2%;
+    right: 55px;
+}
+.cart-icon i {
+    font-size: 20px; 
+}
+.cart-count {
+    width: 18px;
+    height: 18px;
+    font-size: 10px; /* Smaller count font */
+    top: 3px;
+    right: 3px;
+}
+}
+@media (max-width: 600px) {
+    #menu-container {
+        grid-template-columns: repeat(1, 1fr) !important;
+        padding-top: 6%;
+        place-items: center;
+    }
+    .cat_nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cat_nav li {
+        margin: 5px 0;
+    }
+    .cat_main {
+        margin-left: 0;
+        max-width: 100%;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    #menu-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .cat_main {
+        margin: 10px auto;
+        margin-left: 0;
+        max-width: 100%; 
+    }
+    .cat_img {
+        height: auto;
+    }
+    .cat_nav {
+        flex-direction: column;
+    }
+    .icon {
+        display: inline-flex;
+}
+@media (max-width: 1024px) {
+    #menu-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .cat_main {
+        max-width: 220px;
+    }
+}
+@media (max-width: 1200px) {
+    #menu-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .cat_main {
+        margin: 15px;
+        max-width: 240px;
+    }
+    .cat_img {
+        height: 50%;
+        width: 100%;
+    }
+}
+    @media (max-width: 992px) {
+    .header {
+        padding: 1.3rem 5%;
+    }
+    }
+    
+    #check:checked ~ .icon #menu-icon {
+        display: none;
+    }
+    .icon #close-icon {
+        display: none;
+    }
+    #check:checked ~ .icon #close-icon {
+        display: block;
+    }
+    .cat_nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;    
+        height: 0;
+        flex-direction: column;
+        background: rgba(255, 119, 0, 0.1);
+        backdrop-filter: blur(50px);
+        font-family: "Ga Maamli", sans-serif;
+        font-weight: 1000;
+        font-style: normal;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+    #check:checked ~ nav .cat_nav {
+        height: 25rem;
+    }
+    .cat_nav a {
+        display: block;
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        color: #a45409;;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    #check:checked ~ nav .cat_nav a {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .cat_nav li:nth-child(1) a {
+        transition-delay: 0.1s;
+    }
+    .cat_nav li:nth-child(2) a {
+        transition-delay: 0.2s;
+    }
+    .cat_nav li:nth-child(3) a {
+        transition-delay: 0.3s;
+    }
+    .cat_nav li:nth-child(4) a {
+        transition-delay: 0.4s;
+    }
+    .cat_nav li:nth-child(5) a {
+        transition-delay: 0.5s;
+    }
+    .cat_nav li:nth-child(6) a {
+        transition-delay: 0.6s;
+    }
+    .cat_nav li:nth-child(7) a {
+        transition-delay: 0.7s;
+    }
+    .cart-icon {
+    width: 50px;
+    height: 50px;
+    top: -2%;
+    right: 55px;
+}
+.cart-icon i {
+    font-size: 20px; 
+}
+.cart-count {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    top: 3px;
+    right: 3px;
+}
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <img class="header_logo" src="../FOOD_IMG/logo.png"> 
+        <a href="#" class="logo">Kanish</a>
+        <input type="checkbox" id="check">
+        <label for="check" class="icon">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+        <nav>
+            <ul class="cat_nav">
+                <li><a href="#" onclick="displayItemsByCategory('All')">All</a></li>
+                <li><a href="#" onclick="displayItemsByCategory('Appetizers')">Appetizers</a></li>
+                <li><a href="#" onclick="displayItemsByCategory('Soups & Salads')">Soups & Salads</a></li>
+                <li><a href="#" onclick="displayItemsByCategory('Main Dish')">Main Dish</a></li>
+                <li><a href="#" onclick="displayItemsByCategory('Pizza')">Pizza</a></li>
+                <li><a href="#" onclick="displayItemsByCategory('Dessert')">Dessert</a></li>
+                <li><a href="#" onclick="displayItemsByCategory('Beverages')">Beverages</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" onclick="toggleCartSidebar()">
+            <i class='bx bx-cart'></i>
+            <span id="cart-count" class="cart-count">0</span>
+        </div>
+    </header>
+    <div id="menu-container"></div>
+    <div id="cart-sidebar" class="cart-sidebar" style="display: none;">
+        <div id="cart-display"></div>
+    </div>
+<script>
+    const items = [
+    { name: "Meatballs", category: "All,Appetizers", description: "Meatballs with marinara sauce", type: "Non-Vegetarian", price: "$18.00", img: "../FOOD_IMG/preview.jpg" },
+    { name: "Spicy Potato", category: "All,Appetizers", description: "Chili, potato, Salt.", type: "Vegetarian", price: "$12.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/spicy potato.webp" },
+    { name: "Garlic Bread ", category: "All,Appetizers", description: "Cheese, salt, tomato.", type: "Non-Vegetarian", price: "$14.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Garlic Bread.jpeg" },
+    { name: "Italian Nachos", category: "All,Appetizers", description: "Cheese, garlic, salt, tomato.", type: "Non-Vegetarian", price: "$23.00", img: "../FOOD_IMG/Italian-Nachos.jpg" },
+    { name: "Chicken Wings", category: "All,Appetizers", description: "BBQ, honey mustard.", type: "Non-Vegetarian", price: "$15.00", img: "../FOOD_IMG/Chicken Wings.jpg" },
+    { name: "Mozzarella Sticks", category: "All,Appetizers", description: "Mozzarella with marinara.", type: "Vegetarian", price: "$13.00", img: "../FOOD_IMG/Mozzarella Sticks.jpg " },
+    { name: "Calamari", category :"All,Appetizers", description:"Fried rings with marinara.",type:"Seafood", price:"$18.00",img:"C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Calamari.jpg"},
+    { name: "Spring Roll", category :"All,Appetizers", description:"Veggie rolls with chili sauce.",type:"Vegetarian", price:"$11.00",img:"C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/spring roll.avif"},
+    { name: "Hummus with Pita", category: "All,Appetizers", description: "Meatballs with marinara sauce", type: "Non-Vegetarian", price: "$14.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Hummus with Pita.jpg" },
+    { name: "Mushrooms", category: "All,Appetizers", description: "Meatballs with marinara sauce", type: "Non-Vegetarian", price: "$14.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/mushroom.jpg" },
+    { name: "Bruschetta ", category: "All,Appetizers", description: "Meatballs with marinara sauce", type: "Non-Vegetarian", price: "$14.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Bruschetta.jpg" },
+    { name: "Shrimp Cocktail ", category: "All,Appetizers", description: "Shrimp with cocktail.", type: "Non-Vegetarian", price: "$14.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Shrimp Cocktail.jpg" },
+    { name: "Deviled Eggs", category: "All,Appetizers", description: "Eggs with paprika.", type: "Non-Vegetarian", price: "$14.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Deviled Eggs.jpg" },
+    { name: "Caprese Skewers", category: "All,Appetizers", description: "Meatballs with marinara sauce", type: "Non-Vegetarian", price: "$14.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Caprese Skewers.webp" },
+    { name: "Buffalo Bits", category: "All,Appetizers", description: "Spicy cauliflower with ranch.", type: "Vegetarian", price: "$13.00", img: "../FOOD_IMG/Buffalo Bits.jpg" },
+    { name: "Tomato Soup", category: "All,Soups & Salads", description: "Fresh tomatoes, herbs.", type: "Vegetarian", price: "$10.00", img: "../FOOD_IMG/Tomato Soup.jpg" },
+    { name: "Chicken Noodle", category: "All,Soups & Salads", description: "Chicken, noodles.", type: "Vegetarian", price: "$11.00", img: "../FOOD_IMG//Chicken Noodle.jpg" },
+    { name: "Minestrone", category: "All,Soups & Salads", description: "Vegetables, pasta, beans", type: "Vegetarian", price: "$11.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Minestrone.jpg" },
+    { name: "French Onion", category: "All,Soups & Salads", description: "Onions, cheese.", type: "Vegetarian", price: "$12.00", img: "../FOOD_IMG/French Onion.jpg" },
+    { name: "Caesar Soup", category: "All,Soups & Salads", description: "Romaine, croutons, Parmesan", type: "Vegetarian", price: "$14.00", img: "../FOOD_IMG/Caesar Salad.jpg" },
+    { name: "Greek Soup", category: "All,Soups & Salads", description: "Greens, tomatoes, cucumbers.", type: "Non-Vegetarian", price: "$13.00", img: "../FOOD_IMG/Greek Salad.jpg" },
+    { name: "Garden Soup", category: "All,Soups & Salads", description: "Greens, tomatoes, cucumbers.", type: "Vegetarian", price: "$13.00", img: "../FOOD_IMG/Garden Salad.jpg" },
+    { name: "Mushroom Soup", category: "All,Soups & Salads", description: "Mushrooms, cream, herbs.", type: "Vegetarian", price: "$10.00", img: "../FOOD_IMG/Mushroomsoup.jpg" },
+    { name: "Caprese Soup", category: "All,Soups & Salads", description: "Tomatoes, mozzarella, basil.", type: "Vegetarian", price: "$12.00", img: "../FOOD_IMG/Caprese Salad.jpg" },
+    { name: "Spinach Soup", category: "All,Soups & Salads", description: "Spinach, strawberries,feta.", type: "Vegetarian", price: "$13.00", img: "../FOOD_IMG/Spinach Salad.jpg" },
+    { name: "Grilled Chicken", category: "All,Main Dish", description: "Fresh tomatoes, herbs.", type: "Non-Vegetarian", price: "$10.00", img: "../FOOD_IMG/grill1.jpg" },
+    { name: "Pasta Alfredo", category: "All,Main Dish", description: "Creamy pasta with Alfredo sauce.", type: "Vegetarian", price: "$14.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Pasta Alfredo.jpg" },
+    { name: "Beef Steak", category: "All,Main Dish", description: "Tender beef steak with garlic butter.", type: "Non-Vegetarian", price: "$25.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Beef Steak.jpg" },
+    { name: "Vegetable Stir-Fry", category: "All,Main Dish", description: "Fresh veggies stir-fried in soy sauce.", type: "Vegetarian", price: "$12.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Vegetable Stir-Fry.jpg" },
+    { name: "Salmon", category: "All,Main Dish", description: "Romaine, croutons, Parmesan.", type: "Vegetarian", price: "$14.00", img: "../FOOD_IMG/Salmon.jpg" },
+    { name: "Chicken Parmesan", category: "All,Main Dish", description: "Greens, tomatoes, cucumbers.", type: "Non-Vegetarian", price: "$3.00", img: "../FOOD_IMG/Chicken Parmesan.jpg" },
+    { name: "Veggie Burger", category: "All,Main Dish", description: "Greens, tomatoes, cucumbers.", type: "Vegetarian", price: "$13.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Veggie Burger.jpg" },
+    { name: "Lamb Chops", category: "All,Main Dish", description: "Mushrooms, cream, herbs.", type: "Vegetarian", price: "$10.00", img: "../FOOD_IMG/Lamb Chops.jpg" },
+    { name: "Shrimp Scampi", category: "All,Main Dish", description: "Tomatoes, mozzarella, basil.", type: "Vegetarian", price: "$12 .00", img: "../FOOD_IMG/Shrimp Scampi.jpg" },
+    { name: "BBQ Ribs", category: "All,Main Dish", description: "Spinach, strawberries,feta.", type: "Vegetarian", price: "$13.00", img: "../FOOD_IMG/BBQ Ribs.jpg" },
+    { name: "Classic Lemonade", category: "All,Beverages", description: "Freshly squeezed lemons with a hint of sweetness.", type: "Vegetarian", price: "$5.00", img: "../FOOD_IMG/Lemonade19-3.jpg" },
+    { name: "Fresh Orange", category: "All,Beverages", description: "Freshly squeezed oranges for a refreshing taste.", type: "Vegetarian", price: "$6.00", img: "../FOOD_IMG/Fresh Orange Juice.jpg" },
+    { name: "Espresso Coffee", category: "All,Beverages", description: "Strong espresso shot to wake you up.", type: "Vegetarian", price: "$4.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Espresso Coffee.jpg" },
+    { name: "Iced Lemon Tea", category: "All,Beverages", description: "Chilled tea with lemon for a refreshing sip.", type: "Vegetarian", price: "$5.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Iced Lemon Tea.jpg" },
+    { name: "Tiramisu", category: "All,Dessert", description: "coffee-soaked ladyfingers and mascarpone cream.", type: "Dessert", price: "$7.00", img: "../FOOD_IMG/Tiramisu.jpg" },
+    { name: "Chocolate Lava", category: "All,Dessert", description: "molten center, vanilla ice cream.", type: "Dessert", price: "$8.00", img: "../FOOD_IMG/Chocolate Lava Cake.jpg" },
+    { name: "Panna Cotta", category: "All,Dessert", description: "Silky vanilla custard topped with berry sauce.", type: "Dessert", price: "$5.00", img: "../FOOD_IMG/Panna Cotta.jpg" },
+    { name: "Gelato", category: "All,Dessert", description: "pistachio, chocolate, and vanilla.", type: "Dessert", price: "$4.00", img: "../FOOD_IMG/Gelato .jpg" },
+    { name: "Chocolate Cake", category: "All,Dessert", description: "Rich and moist chocolate cake.", type: "Vegetarian", price: "$7.00", img: "C:/Users/lenovo/OneDrive/Desktop/FOOD WEB/FOOD_IMG/Cheesecake .jpg" },
+    { name: "Margherita Pizza", category: "All,Pizza", description: "Fresh tomatoes, mozzarella, and basil.", type: "Vegetarian", price: "$12.00", img: "../FOOD_IMG/Margherita pizza.jpg" },
+    { name: "Pepperoni Pizza", category: "All,Pizza", description: "Pepperoni, mozzarella, and tomato sauce.", type: "Non-Vegetarian", price: "$15.00", img: "../FOOD_IMG/Pepperoni .jpg" },
+    { name: "BBQ Chicken", category: "All,Pizza", description: "Grilled chicken, BBQ sauce, red onions, and cilantro.", type: "Non-Vegetarian", price: "$16.00", img: "../FOOD_IMG/BBQ Chicken _pizza.jpg" },
+    { name: "Veggie Supreme", category: "All,Pizza", description: "Tomatoes, mozzarella, basil, and mozzarella.", type: "Vegetarian", price: "$14.00", img: "../FOOD_IMG/Veggie Delight_pizza.jpg" },
+    { name: "Four Cheese Pizza", category: "All,Pizza", description: "Mozzarella, Parmesan, Gouda.", type: "Vegetarian", price: "$13.00", img: "../FOOD_IMG/Four Cheese _pizza.jpg" }  
+    ];
+let cartItems = [];
+function displayItemsByCategory(category) {
+    const container = document.getElementById('menu-container');
+    container.innerHTML = '';
+    items
+        .filter(item => category === 'All' || item.category.includes(category))
+        .forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'cat_main';
+
+            itemDiv.innerHTML = `
+                <img src="${item.img}" alt="${item.name}" class="cat_img" />
+                <h2>${item.name}</h2>
+                <p class="description">${item.description}</p>
+                <p class="type">${item.type}</p>
+                <p class="price">${item.price}</p>
+                <button onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">Add to Cart</button>
+            `;
+            container.appendChild(itemDiv);
+        });
+    document.getElementById('check').checked = false;
+}
+function addToCart(name, price, img) {
+    const item = { name, price, img };
+    cartItems.push(item);
+    alert(`${name} has been added to your cart!`);
+    updateCartCount();
+}
+function updateCartCount() {
+    document.getElementById('cart-count').innerText = cartItems.length;
+}
+function toggleCartSidebar() {
+    const sidebar = document.querySelector('.cart-sidebar');
+    sidebar.classList.toggle('open');
+}
+displayItemsByCategory('All');
+</script>
+</body>
+</html>

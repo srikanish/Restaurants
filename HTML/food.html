@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../FOOD_IMG/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Damion&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../CSS/food.css" />
+  <title>Kanish | Restaurant</title>
+</head>
+<body>
+  <nav>
+      <div class="nav_header">
+        <div class="logo nav_logo">
+          <img  class="header_logo"src="../FOOD_IMG/logo.png"> 
+          <a href="#">Kani<span>sh</span></a>
+        </div>
+        <div class="nav_bar_btn" id="menu-btn">
+          <span><i class="ri-menu-line"></i></span>
+        </div>
+      </div>
+      <ul class="nav_links" id="nav-links">
+          <li><a href="#home" onclick="navigate('Home')">Home</a></li>
+          <li><a href="#special" onclick="navigate('Special')">Special</a></li>
+          <li><a href="#chef" onclick="navigate('Chef')">Chef</a></li>
+          <li><a href="#client" onclick="navigate('Client')">Client</a></li>
+          <li><a href="#contact" onclick="navigate('Contact')">Contact</a></li>
+          <li><a href="./sign_up.html"  onclick="navigate('Login | Signup')" target="_blank">Login | Sign-up</a></li>
+          <li><a  class="btn" id="categories-btn" href="C:/Users/lenovo/OneDrive/Desktop/FOOD%20WEB/HTML/categories.html"target="_blank"  >Order Now <span><i class="ri-arrow-right-line" ></i></span></a></li>
+      </ul>
+     <div class="nav_btn">
+      <button class="btn"><i class="ri-shopping-bag-fill" onclick="toggleMenu()"></i></button>
+    </div>
+  </nav>
+  <header class="section_container header_container" id="home">
+    <div class="header_image">
+      <img src="../FOOD_IMG/burger.png" alt="header" />
+    </div>
+    <div class="header_content">
+      <h1>Meet, Eat & Enjoy The <span>True Taste</span>.</h1>
+      <p class="section_description">
+        Discover the true essence of culinary delight as you meet, eat, and savor the authentic flavors that define our passion for food.
+      </p>
+    </div>
+  </header>
+
+  <div class="position-fixed end-0 bottom-0 ">
+    <div class="bi bi-instagram"></div>
+    <div class="bi bi-youtube"></div>
+    <div class="bi bi-linkedin"></div>
+</div>
+
+  <section class="section_container special_container" id="special">
+    <h2 class="section_header">Our Special Dish</h2>
+    <p class="section_description">
+      Each dish promises an unforgettable dining experience, blending innovation with tradition to delight your senses.
+    </p>
+    <div class="special_grid">
+      <div class="special_card">
+        <img src="../FOOD_IMG/special-1.png" alt="special" />
+        <h4>Chicken Veg Curry</h4>
+        <p>
+          Diced chicken simmered in aromatic curry sauce with mixed veggies like potatoes, cauliflower, and beans for a hearty flavorful dish.
+        </p>
+      </div>
+      <div class="special_card">
+        <img src="../FOOD_IMG/special-2.png" alt="special"/>
+        <h4>Chicken Veg Stri-Fry</h4>
+        <p>
+          Tender chicken strips wok-tossed with a colorful array of fresh vegetables in a flavorful blend of spices and sauces.
+        </p>        
+      </div>
+      <div class="special_card">
+        <img src="../FOOD_IMG/special-3.png" alt="special"/>
+        <h4>Chicken Veg Pasta</h4>
+        <p>
+          Al dente pasta tossed with chicken strips and a mix of vibrant vegetables in a creamy garlic herb sauce, offering a delightful pasta experience.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section_container explore_container">
+    <div class="explore_image">
+      <img src="../FOOD_IMG/explore.png" alt="explore"/>
+    </div>
+    <div class="explore_content">
+      <h1 class="section_header">We Serve Healthy & Tasty Food</h1>
+      <p class="section_description">
+        Indulge guilt-free with our commitment to serving wholesome and delicious meals. Explore a menu curated to balance taste and nutrition, ensuring every bite is both satisfying and nourishing.
+      </p>
+      <div class="explore_btn">
+        <button class="btn">Explore Story <span><i class="ri-arrow-right-line"></i></span></button>
+      </div>
+    </div>
+  </section>
+  <section class="section_container banner_container">
+    <div class="banner_card">
+      <span class="banner_icon"><i class="ri-bowl-fill"></i></span>
+    <h4>Order Your Food</h4>
+    <p>
+      Seamlessly place your food orders online with just a few clicks. Enjoy convenience and efficiency as you select from our diverse menu of delectable dishes.
+    </p>
+    <a href="#">
+      Read more<span><i class="ri-arrow-right-line"></i></span>
+    </a>
+  </div>
+  <div class="banner_card">
+    <span class="banner_icon">
+      <i class="ri-truck-fill"></i></span>
+      <h4>Pick Your Food</h4>
+      <p> Customize your dining experience by choosing from a tantalizing array of options. For savory, sweet, or in-between cravings, find the perfect meal to satisfy your appetite.
+      </p>
+      <a href="#">Read more
+        <span><i class="ri-arrow-right-line"> </i></span>
+      </a>
+  </div>
+  <div class="banner_card">
+    <span class="banner_icon"><i class="ri-star-smile-fill"></i></span>
+    <h4>Enjoy Your Food</h4>
+    <p>
+      Sit back, relax, and savor the flavors as your meticulously prepared meal arrives. Delight in the deliciousness of every bite, knowing that your satisfaction is our top priority.
+    </p>
+    <a href="#" >
+      Read more<span><i class="ri-arrow-right-line"></i></span>
+    </a>
+  </div>
+  </section>
+
+  <section class="chef" id ="chef">
+    <div class="chef_bg">
+    <img src="../FOOD_IMG/topping.png" alt="topping" />
+    </div>
+    <div class="section_container chef_container">
+      <div class="chef_image">
+        <img src="../FOOD_IMG/chef.png" alt="chef"/>
+      </div>
+      <div class="chef_content">
+        <h2 class="section_header">Cooked By The Best Chefs In The World</h2>
+        <p class="section_description">
+          Experience culinary excellence crafted by master chefs from around the globe. Our team of culinary virtuosos brings together expertise, innovation, and passion to create unforgettable dining experiences that redefine gastronomy.
+        </p>
+        <ul class="chef_list">
+          <li>
+            <span><i class="ri-checkbox-fill"></i></span>
+            Savor culinary brilliance from master chefs worldwide.
+          </li>
+          <li>
+            <span><i class="ri-checkbox-fill"></i></span>
+            Experience innovative creations with attention to detail.
+          </li>
+          <li>
+            <span><i class="ri-checkbox-fill"></i></span>
+            Enjoy dishes crafted with an unwaring passion for perfection.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_container client_container" id="client">
+    <h2 class="section_header">What Our Customers Are Saying</h2>
+    <p class="section_description">
+      Discover firsthand experience and testimonals from our valued patrons . 
+      Explore the feedback and reviews that showcase our commitment to quality, serice, and Customer satisfaction.
+    </p>
+  <section class="customer_container">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="main_container">
+                    <img src="../FOOD_IMG/p11 (1).jpg" class="image" alt="Customer Image">
+                    <div class="overlay">
+                        <div class="teamref"><img src="../FOOD_IMG/team-particle-orange.png" alt="Decorative Image"></div>
+                        <h1 class="names_cust">John Smith</h1>
+                        <span class="post_cust">Food Enthusiast</span>
+                        <h2 class="names_customer">I am delighted to share my exceptional experience at this culinary gem.</h2>
+                        <div class="member-social-icon">
+                            <a href="#!" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#!" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#!" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="main_container">
+                    <img src="../FOOD_IMG/p11 (2).jpg" class="image" alt="Customer Image">
+                    <div class="overlay">
+                        <div class="teamref"><img src="../FOOD_IMG/team-particle-orange.png" alt="Decorative Image"></div>
+                        <h1 class="names_cust">Jane Doe</h1>
+                        <span class="post_cust">Gourmet Traveler</span>
+                        <h2 class="names_customer">The food was an exquisite journey of flavors, beautifully presented and impeccably crafted.</h2>
+                        <div class="member-social-icon">
+                            <a href="#!" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#!" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#!" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="main_container">
+                    <img src="../FOOD_IMG/p11 (3).jpg" class="image" alt="Customer Image">
+                    <div class="overlay">
+                        <div class="teamref"><img src="../FOOD_IMG/team-particle-orange.png" alt="Decorative Image"></div>
+                        <h1 class="names_cust">Robert Brown</h1>
+                        <span class="post_cust">Food Enthusiast</span>
+                        <h2 class="names_customer">The service was attentive and friendly, making every moment enjoyable.</h2>
+                        <div class="member-social-icon">
+                            <a href="#!" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#!" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#!" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="main_container">
+                    <img src="../FOOD_IMG/p11 (4).jpg" class="image" alt="Customer Image">
+                    <div class="overlay">
+                        <div class="teamref"><img src="../FOOD_IMG/team-particle-orange.png" alt="Decorative Image"></div>
+                        <h1 class="names_cust">Cristina Bob</h1>
+                        <span class="post_cust">Food Enthusiast</span>
+                        <h2 class="names_customer">I highly recommend this restaurant for an unforgettable dining adventure.</h2>
+                        <div class="member-social-icon">
+                            <a href="#!" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#!" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#!" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="main_container">
+                    <img src="../FOOD_IMG/p11 (5).jpg" class="image" alt="Customer Image">
+                    <div class="overlay">
+                        <div class="teamref"><img src="../FOOD_IMG/team-particle-orange.png" alt="Decorative Image"></div>
+                        <h1 class="names_cust">Sophia Jone</h1>
+                        <span class="post_cust">Food Enthusiast</span>
+                        <h2 class="names_customer">The chefs here are truly artists, creating dishes that are as stunning visually as they are delicious.</h2>
+                        <div class="member-social-icon">
+                            <a href="#!" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#!" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#!" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="main_container">
+                    <img src="../FOOD_IMG/p11 (6).jpg" class="image" alt="Customer Image">
+                    <div class="overlay">
+                        <div class="teamref"><img src="../FOOD_IMG/team-particle-orange.png" alt="Decorative Image"></div>
+                        <h1 class="names_cust">Nova Abbot</h1>
+                        <span class="post_cust">Food Enthusiast</span>
+                        <h2 class="names_customer">The service is impeccable, making you feel like a valued guest.</h2>
+                        <div class="member-social-icon">
+                            <a href="#!" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#!" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#!" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section class="section_container contact_container" id="contact">
+        <div class="contact_image_wrapper">
+            <img src="../FOOD_IMG/Create an image 5544d8d8-8cd5-4a43-8281-2fcbd0ee32f6.png" alt="image" class="contect_img">
+            <div class="contect_sub">
+                <h2 class="section_header">Contact Us</h2>
+                <p class="section_description">
+                  We'd love to hear from you! Whether you have a question about our menu, services, or anything else, our team is ready to answer all your questions.
+                </p>
+                <div class="contact_form_container">
+                  <form action="#" method="post" class="contact_form">
+                    <div class="form_group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form_group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form_group">
+                      <label for="message">Message</label>
+                      <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  
+  <footer class="footer" id="Contact">
+    <div class="section_container footer_container">
+      <div class="footer_col">
+        <div class="logo footer_logo">
+          <a href="#">kani<span>sh</span></a>
+        </div>
+          <p class="section_description">
+            Embark on a gastronomic journey with FoodMan, Whrer every bite tells a story and everydish is crafted to pedrfection.
+          </p>   
+      </div>
+      <div class="footer_col">
+        <h4>Product</h4>
+        <ul class="footer_links">
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Specials</a></li>
+          <li><a href="#">Meal Deals</a></li>
+          <li><a href="#">Catering options</a></li>
+          <li><a href="#">Seasonal Offerings</a></li>
+        </ul>
+      </div>
+      <div class="footer_col">
+        <h4>Information</h4>
+        <ul class="footer_links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Nutrition Information</a></li>
+          <li><a href="#">Allergen Inforamtion</a></li>
+        </ul>
+      </div>
+      <div class="footer_col">
+        <h4>Company</h4>
+        <ul class="footer_links">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </div>
+    <div class="footer_bar">
+      Copyright © 2024 Kanishka. All rights reserved.
+    </div>
+  </footer>
+
+<button class="button" onclick="gototop()">
+  <svg class="svgIcon" viewBox="0 0 384 512">
+    <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+  </svg>
+</button>
+
+
+<style>
+
+  .button{
+    right:50px;
+    top:-30px;
+  }
+
+  @media (max-width: 700px) {
+    .button {
+        width: 50px;
+        height: 50px;
+        right: 950px; 
+        bottom: 50px; 
+        border-radius: 25px;
+    }
+    .button .svgIcon {
+        width: 24px;
+        height: 24px;
+    }
+}
+@media (max-width: 600px) {
+    .button {
+        width: 50px;
+        height: 50px;
+        right: 950px; 
+        bottom: 50px; 
+        border-radius: 25px;
+    }
+    .button .svgIcon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+
+
+</style>
+</html>
+<script>
+   function gototop() {
+    console.log("Button clicked"); // Check if this logs in the console
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }  
+
+  function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+
+        function navigate(section) {
+            document.getElementById('content').innerHTML = `<h1>${section}</h1>`;
+            toggleMenu();
+        }
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="../JS/food.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
