@@ -1,5 +1,7 @@
 # 🍔 Food Web - Restaurant Website
 
+![Food Web](https://drive.google.com/uc?id=1XYZabcDEFghiJK)
+
 A responsive and interactive food ordering website built using **HTML**, **CSS**, and **JavaScript**.
 
 ## 🌟 Features
