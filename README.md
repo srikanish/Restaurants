@@ -8,7 +8,7 @@ A responsive and interactive food ordering website built using **HTML**, **CSS**
 - Interactive features with JavaScript
 
 ## 🚀 Live Demo
-Check it out here: [Food Web Website][(https://your-username.github.io/food-web/)](https://food-restaurant-60039108644.development.catalystserverless.in/app/index.html)
+Check it out here: [Food Web Website][(https://food-restaurant-60039108644.development.catalystserverless.in/app/index.html)
 
 ## 📂 Project Structure
 - **HTML**
